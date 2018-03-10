@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BdayComponent } from './bday/bday.component';
 import { OrtComponent } from './ort/ort.component';
 import { FaqComponent } from './faq/faq.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/bday', pathMatch: 'full' },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { 
     path: 'faq',
     component: FaqComponent
-  }
+  },
+  { path: '**', component: PageNotFoundComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
