@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import {Md5} from 'ts-md5/dist/md5';
 
+import { LoginReporterService } from '../login-reporter.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,19 +14,23 @@ export class LoginComponent implements OnInit {
   pwInput : string;
   loginOK : boolean = false;
 
-  pws : string[] = [  ];
+  pws : string[] = [ 
+    "098f6bcd4621d373cade4e832627b4f6" // test
+   ];
 
-  constructor() { }
+  constructor(private reporter : LoginReporterService ) { }
 
   ngOnInit() {
-    console.log(Md5.hashStr("test").toString());
   }
 
   loginHandler() {
-    console.log( (this.pwInput) );
-    // console.log( md5(this.pwInput) );
 
-    this.loginOK = ( this.pws.indexOf(this.pwInput) >= 0 );
+    let hashedInput = Md5.hashStr( this.pwInput ).toString()
+
+    let res = ( this.pws.indexOf( hashedInput ) >= 0 );
+
+    this.reporter.loginSuccessful = res;
+
   }
 
 }

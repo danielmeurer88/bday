@@ -1,3 +1,5 @@
 
-<app-nav></app-nav>
-<router-outlet></router-outlet>
+<app-login *ngIf='loginOK==false'></app-login>
+
+<app-nav *ngIf='loginOK==true'></app-nav>
+<router-outlet *ngIf='loginOK==true'></router-outlet>

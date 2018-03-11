@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { LoginReporterService } from './login-reporter.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
   loginOK : boolean = false;
+
+  constructor(private reporter : LoginReporterService) {
+    
+  }
+
+  ngOnInit() {
+    this.reporter.subscribe((state)=>this.loginOK = state);
+  }
+
 }
