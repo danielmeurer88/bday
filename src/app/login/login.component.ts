@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {Md5} from 'ts-md5/dist/md5';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,11 +12,12 @@ export class LoginComponent implements OnInit {
   pwInput : string;
   loginOK : boolean = false;
 
-  pws : string[] = ["test"];
+  pws : string[] = [  ];
 
   constructor() { }
 
   ngOnInit() {
+    console.log(Md5.hashStr("test").toString());
   }
 
   loginHandler() {
