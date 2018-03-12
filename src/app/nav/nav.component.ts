@@ -15,6 +15,7 @@ export class NavComponent implements OnInit {
 
   logout() : void {
     this.reporter.loginSuccessful = false;
+    this.reporter.loggedOut();
   }
 
 }

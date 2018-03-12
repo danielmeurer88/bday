@@ -16,7 +16,10 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.reporter.subscribe((state)=>this.loginOK = state);
+    this.reporter.subscribe((state) => {
+      console.log("state changed", state);
+      this.loginOK = state;
+    });
   }
 
 }

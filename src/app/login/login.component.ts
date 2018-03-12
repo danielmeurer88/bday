@@ -12,7 +12,6 @@ import { LoginReporterService } from '../login-reporter.service';
 export class LoginComponent implements OnInit {
 
   pwInput : string;
-  loginOK : boolean = false;
 
   pws : string[] = [ 
     "098f6bcd4621d373cade4e832627b4f6" // test
@@ -21,6 +20,12 @@ export class LoginComponent implements OnInit {
   constructor(private reporter : LoginReporterService ) { }
 
   ngOnInit() {
+    
+    if ( this.reporter.checkIfAccessAllowed() ) {
+      console.log("could be auto login");
+      
+      //this.reporter.loginSuccessful = true; // throws ExpressionChangedAfterItHasBeenCheckedError
+    }
   }
 
   loginHandler() {
@@ -30,6 +35,12 @@ export class LoginComponent implements OnInit {
     let res = ( this.pws.indexOf( hashedInput ) >= 0 );
 
     this.reporter.loginSuccessful = res;
+
+    if (res) {
+      this.reporter.loggedIn();
+    } else {
+      this.reporter.loggedOut();
+    }
 
   }
 
