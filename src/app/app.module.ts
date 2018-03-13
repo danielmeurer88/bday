@@ -12,7 +12,6 @@ import { FaqComponent } from './faq/faq.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-import { LoginReporterService } from './login-reporter.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,7 @@ import { LoginReporterService } from './login-reporter.service';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ LoginReporterService ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import {Md5} from 'ts-md5/dist/md5';
-
-import { LoginReporterService } from '../login-reporter.service';
 
 @Component({
   selector: 'app-login',
@@ -12,36 +10,48 @@ import { LoginReporterService } from '../login-reporter.service';
 export class LoginComponent implements OnInit {
 
   pwInput : string;
+  localStorageKey : string = "allowAccess";
+
+  @Input() loginOK_Child : boolean;
+  @Output() emitter : EventEmitter<boolean> = new EventEmitter<boolean>();
 
   pws : string[] = [ 
     "098f6bcd4621d373cade4e832627b4f6" // test
    ];
 
-  constructor(private reporter : LoginReporterService ) { }
+  constructor( ) { }
 
   ngOnInit() {
-    
-    if ( this.reporter.checkIfAccessAllowed() ) {
-      console.log("could be auto login");
-      
-      //this.reporter.loginSuccessful = true; // throws ExpressionChangedAfterItHasBeenCheckedError
+
+    if ( this.readLoggedInFromLocalStorage( ) ) {
+      this.loginOK_Child = true;
+      this.emitter.emit(this.loginOK_Child);
     }
+    
   }
 
   loginHandler() {
 
     let hashedInput = Md5.hashStr( this.pwInput ).toString()
 
-    let res = ( this.pws.indexOf( hashedInput ) >= 0 );
-
-    this.reporter.loginSuccessful = res;
-
-    if (res) {
-      this.reporter.loggedIn();
+    if ( this.pws.indexOf( hashedInput ) >= 0 ) {
+      this.loginOK_Child = true;
     } else {
-      this.reporter.loggedOut();
+      this.loginOK_Child = false;
     }
+    
+    this.writeLoggedInToLocalStorage(this.loginOK_Child);
+    this.emitter.emit(this.loginOK_Child);
 
+  }
+
+  writeLoggedInToLocalStorage(bool : boolean) : void {
+    localStorage.setItem(this.localStorageKey, bool.toString() );
+  }
+
+  readLoggedInFromLocalStorage() : boolean {
+    let res = localStorage.getItem(this.localStorageKey);
+    return (res === null || res === "false") ? false : true; 
   }
 
 }

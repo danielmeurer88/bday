@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginReporterService } from '../login-reporter.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -8,14 +7,21 @@ import { LoginReporterService } from '../login-reporter.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private reporter : LoginReporterService) { }
+  localStorageKey : string = "allowAccess";
+
+  @Input() loginOK_Child : boolean;
+  @Output() emitter : EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  constructor() { }
 
   ngOnInit() {
   }
 
   logout() : void {
-    this.reporter.loginSuccessful = false;
-    this.reporter.loggedOut();
+    this.loginOK_Child = false;
+    this.emitter.emit(this.loginOK_Child);
+
+    localStorage.setItem(this.localStorageKey, "false" );
   }
 
 }

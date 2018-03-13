@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-import { LoginReporterService } from './login-reporter.service';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,15 +9,11 @@ export class AppComponent {
   
   loginOK : boolean = false;
 
-  constructor(private reporter : LoginReporterService) {
-    
+  constructor() {
   }
 
   ngOnInit() {
-    this.reporter.subscribe((state) => {
-      console.log("state changed", state);
-      this.loginOK = state;
-    });
+
   }
 
 }

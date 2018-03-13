@@ -1,5 +1,5 @@
 
-<app-login *ngIf='loginOK==false'></app-login>
+<app-login [loginOK_Child]="loginOK" (emitter)="loginOK = $event" *ngIf='loginOK==false'></app-login>
 
-<app-nav *ngIf='loginOK==true'></app-nav>
+<app-nav [loginOK_Child]="loginOK" (emitter)="loginOK = $event" *ngIf='loginOK==true'></app-nav>
 <router-outlet *ngIf='loginOK==true'></router-outlet>
