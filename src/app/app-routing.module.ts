@@ -9,7 +9,7 @@ import { FaqComponent } from './faq/faq.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '', redirectTo: '/bday', pathMatch: 'full' },
   { 
     path: 'bday',
     component: BdayComponent

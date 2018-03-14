@@ -1,0 +1,14 @@
+h3 {
+    text-shadow: 3px 2px 1px #1d559d77, 5px 4px 1px rgba(0,0,0,0.15);
+}
+
+.sp-box {
+    margin: 10px 5px;
+    padding: 10px;
+    background-color: rgb(158, 200, 255);
+    box-shadow: 4px 4px 0px #1d559d8f;
+}
+
+.sp-box span {
+    font-weight: 600;
+}
