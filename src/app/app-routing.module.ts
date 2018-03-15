@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'faq',
     component: FaqComponent
   },
+  { 
+    path: 'login',
+    component: LoginComponent
+  },
   { path: '**', component: PageNotFoundComponent, pathMatch: 'full' }
 ];
 

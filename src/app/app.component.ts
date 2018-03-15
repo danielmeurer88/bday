@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AccessControlService } from './access-control.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +11,7 @@ export class AppComponent implements OnInit {
   
   loginOK : boolean = false;
 
-  constructor() {
+  constructor(public acService : AccessControlService) {
   }
 
   ngOnInit() {

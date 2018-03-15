@@ -1,5 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { AccessControlService } from '../access-control.service';
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -7,21 +11,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  localStorageKey : string = "allowAccess";
+  activeRoute : string = "";
 
-  @Input() loginOK_Child : boolean;
-  @Output() emitter : EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  constructor() { }
+  constructor(private acService : AccessControlService, private acRoute : ActivatedRoute) {
+    let res = acRoute.paramMap.subscribe(vals => {
+      console.log(vals);
+    });
+  }
 
   ngOnInit() {
   }
 
   logout() : void {
-    this.loginOK_Child = false;
-    this.emitter.emit(this.loginOK_Child);
-
-    localStorage.setItem(this.localStorageKey, "false" );
+    this.acService.write(false);
+    this.acService.test();
   }
 
 }

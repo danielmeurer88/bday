@@ -1,0 +1,19 @@
+
+
+#LoginBackground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#LoginWindow  {
+    min-width: 340px;
+    max-width: 90vw;
+    height: 200px;
+    background-color: rgb(0, 0, 41);
+    color: #fff;
+}
+
+#LoginWindow label {
+    color: #fff;
+}

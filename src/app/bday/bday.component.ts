@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AccessControlService } from '../access-control.service';
+
 @Component({
   selector: 'app-bday',
   templateUrl: './bday.component.html',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BdayComponent implements OnInit {
 
-  constructor() { }
+  constructor(private acService : AccessControlService) {
+    acService.test();
+  }
 
   ngOnInit() {
   }
