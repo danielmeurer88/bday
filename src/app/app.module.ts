@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AccessControlService } from './access-control.service';
+import { LoggedInGuard } from './logged-in-guard';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -29,7 +30,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ AccessControlService ],
+  providers: [ AccessControlService, LoggedInGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

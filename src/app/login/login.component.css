@@ -4,16 +4,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    width:100%;
+    height:100%;
 }
 
 #LoginWindow  {
-    min-width: 340px;
+    min-width: 300px;
     max-width: 90vw;
-    height: 200px;
+    min-height: 100px;
     background-color: rgb(0, 0, 41);
     color: #fff;
+
+    position: relative;
+    justify-content: center;
+    align-items: center;
 }
+
 
 #LoginWindow label {
     color: #fff;
+}
+
+#LoginWindow div {
+    margin: 5px;
 }

@@ -1,8 +1,19 @@
 
 <div id="LoginBackground">
-  <div id="LoginWindow">
-    <label>Passwort:</label>
-    <input type="password" [(ngModel)]="pwInput" />
-    <button id="LoginButton" (click)="loginHandler()">Login</button>
+  <div class="container" id="LoginWindow">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <label class="col-sm-4">Passwort:</label>
+        <div class="col-sm-1"></div>
+        <input class="col-sm-4" type="password" [(ngModel)]="pwInput" />
+        <div class="col-sm-1"></div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <button class="col-sm-4" id="LoginButton" (click)="loginHandler()">Login</button>
+      <div class="col-sm-4"></div>
+    </div>
+    
   </div>  
 </div>

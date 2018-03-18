@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { Routes, RouterModule } from '@angular/router';
+import { LoggedInGuard } from './logged-in-guard';
 
 import { LoginComponent } from './login/login.component';
 import { BdayComponent } from './bday/bday.component';
@@ -12,14 +13,17 @@ const routes: Routes = [
   { path: '', redirectTo: '/bday', pathMatch: 'full' },
   { 
     path: 'bday',
+    canActivate : [LoggedInGuard],
     component: BdayComponent
   },
   { 
     path: 'ort',
+    canActivate : [LoggedInGuard],
     component: OrtComponent
   },
   { 
     path: 'faq',
+    canActivate : [LoggedInGuard],
     component: FaqComponent
   },
   { 
