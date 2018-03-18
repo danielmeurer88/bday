@@ -14,7 +14,7 @@ export class LoggedInGuard implements CanActivate {
         console.log("LoggedInGuard says " + answer);
         
         if (res === false) {
-            this.router.navigate(["/login"]);
+            this.router.navigate(["/login/access_blocked"]);
         }
         
         return res;

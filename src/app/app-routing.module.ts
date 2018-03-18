@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+  { 
+    path: 'login/:code',
+    component: LoginComponent
+  },
   { path: '**', component: PageNotFoundComponent, pathMatch: 'full' }
 ];
 

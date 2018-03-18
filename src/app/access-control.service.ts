@@ -11,9 +11,16 @@ export class AccessControlService {
 
   constructor(private router: Router) { }
 
-  test () : void {
+  test (optStr : string = null) : void {
     if (this.read() !== true) {
-      this.router.navigate(['/login']);
+
+      let code = "no_access_allowed";
+
+      if (typeof optStr === "string") {
+        code = optStr;
+      }
+
+      this.router.navigate(['/login/' + code]);
     }
   }
 

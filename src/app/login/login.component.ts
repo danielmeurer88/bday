@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { AccessControlService } from '../access-control.service';
 
@@ -19,8 +19,21 @@ export class LoginComponent implements OnInit {
     "098f6bcd4621d373cade4e832627b4f6" // test
    ];
 
-  constructor(private acService : AccessControlService, private router : Router) {
-    this.acService.test();
+  constructor(private acService : AccessControlService, private router : Router, private aroute : ActivatedRoute) {
+    this.aroute.params.subscribe(
+      (param) => {
+        console.log(param);
+
+        if(param.code === "logged_out") {
+
+        }
+
+        if(param.code === "access_blocked") {
+
+        }
+
+      }
+    );
   }
 
   ngOnInit() {    

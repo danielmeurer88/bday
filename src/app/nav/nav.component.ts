@@ -13,10 +13,7 @@ export class NavComponent implements OnInit {
 
   activeRoute : string = "";
 
-  constructor(private acService : AccessControlService, private acRoute : ActivatedRoute) {
-    let res = acRoute.paramMap.subscribe(vals => {
-      console.log(vals);
-    });
+  constructor(private acService : AccessControlService) {
   }
 
   ngOnInit() {
@@ -24,7 +21,7 @@ export class NavComponent implements OnInit {
 
   logout() : void {
     this.acService.write(false);
-    this.acService.test();
+    this.acService.test("logged_out");
   }
 
 }
