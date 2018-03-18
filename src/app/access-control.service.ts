@@ -14,7 +14,7 @@ export class AccessControlService {
   test (optStr : string = null) : void {
     if (this.read() !== true) {
 
-      let code = "no_access_allowed";
+      let code = "access_denied";
 
       if (typeof optStr === "string") {
         code = optStr;

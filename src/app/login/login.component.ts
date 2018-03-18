@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
 
   pwInput : string;
 
+  reason : UserReason = UserReason.StartedVisiting;
+
   pws : string[] = [ 
     "098f6bcd4621d373cade4e832627b4f6" // test
    ];
@@ -22,14 +24,13 @@ export class LoginComponent implements OnInit {
   constructor(private acService : AccessControlService, private router : Router, private aroute : ActivatedRoute) {
     this.aroute.params.subscribe(
       (param) => {
-        console.log(param);
-
+        
         if(param.code === "logged_out") {
-
+          this.reason = UserReason.LoggedOut;
         }
 
-        if(param.code === "access_blocked") {
-
+        if(param.code === "access_denied") {
+          this.reason = UserReason.AccessDenied;
         }
 
       }
@@ -51,4 +52,8 @@ export class LoginComponent implements OnInit {
     
   }
 
+}
+
+enum UserReason {
+  StartedVisiting, LoggedOut, AccessDenied
 }
