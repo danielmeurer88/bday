@@ -21,11 +21,14 @@
     align-items: center;
 
     border-radius : 20px;
+    box-shadow: 4px 4px 2px #3535358f, -4px -4px 2px #3535358f, 4px -4px 2px #3535358f, -4px 4px 2px #3535358f;
 }
 
 
 #LoginWindow label {
     color: #fff;
+    font-size: 3em;
+    margin-bottom: 0px;
 }
 
 #LoginWindow div {
