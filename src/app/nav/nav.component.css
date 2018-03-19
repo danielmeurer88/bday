@@ -6,3 +6,16 @@ nav.navbar {
     border-top: 2px solid gray;
     margin-top: 10px;
 }
+
+.nav-link > i {
+    font-size: 32px;
+    margin-left: 15px;
+}
+
+.nav-link > i:last-child {
+    margin-left: 0px;
+}
+
+.nav-link:hover {
+    background-color: #ffffff44;
+}
