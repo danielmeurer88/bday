@@ -13,6 +13,7 @@ import { OrtComponent } from './ort/ort.component';
 import { FaqComponent } from './faq/faq.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UserService } from "./user.service";
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ AccessControlService, LoggedInGuard ],
+  providers: [ AccessControlService, LoggedInGuard, UserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

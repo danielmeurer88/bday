@@ -19,3 +19,9 @@ nav.navbar {
 .nav-link:hover {
     background-color: #ffffff44;
 }
+
+.active-link {
+    background-color: #fff;
+    border: 2px solid #333;
+    color: #111;
+}
