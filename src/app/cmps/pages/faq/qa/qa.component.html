@@ -1,0 +1,6 @@
+<div *ngIf='this.show' class='q-and-a'>
+	<div class='question'>{{question}}</div>
+	<div class='answer'>
+    <div *ngFor="let line of lines">{{line}}</div>
+  </div>
+</div>

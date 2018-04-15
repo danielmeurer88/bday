@@ -1,0 +1,16 @@
+<div class="container">
+	<div class='row'>
+		<div class='col-md-10 col-lg-8'>
+
+			<!-- CONTENT START -->
+			<div class='address'><h3>Adresse:</h3><p>Geisenmarkt 13<br>67583 Guntersblum<br>Rheinland-Pfalz</p></div>
+
+			<app-auto *ngIf="user.user.origin != 4"></app-auto>
+
+			<app-train *ngIf="user.user.origin != 4"></app-train>
+
+			<!-- CONTENT END -->
+
+		</div>
+	</div>
+</div>

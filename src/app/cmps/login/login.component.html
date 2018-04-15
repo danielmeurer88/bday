@@ -1,0 +1,19 @@
+<div (keyup)="onKeyUp($event)" id="LoginBackground">
+	<div id="LoginWindow">
+
+		<div>
+			<label>Passwort:</label>
+		</div>
+
+		<div>
+			<input type="password" [(ngModel)]="pwInput" />
+		</div>
+
+		<div>
+			<button id="LoginButton" (click)="loginHandler()"><i class="fa fa-sign-in" aria-hidden="true">Login</i></button>
+		</div>
+
+    <div *ngIf="loginFailed" class='failed'>Login failed</div>
+
+	</div>
+</div>

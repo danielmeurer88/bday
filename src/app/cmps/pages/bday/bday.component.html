@@ -1,0 +1,29 @@
+<div class='container'>
+	<div class='row'>
+    <div class='col-md-10 col-lg-8'>
+
+      <!-- ACTUAL CONTENT -->
+      <h1>Hallo {{ user.getSalutation() }}</h1>
+        
+      <h3>Mein 30. Geburtstag kommt</h3>
+
+      <p>Aber nicht nur dieser wird zelebriert, sondern auch die Einweihungsfeier unseres Hauses, welches bis zum September 
+        renoviert sein sollte.</p>
+      
+      <p>Da mein Geburtstag dieses Jahr auf einen Sonntag fällt, nutze ich die Gelegenheit und feiere am Samstagabend in diesen hinein.</p>
+
+      <p>Der Sonntag ist etwas kinderfreundlicher und einmal abgesehen von einem edlen 
+        Gläschen Woi oder einer Flasche Bier auch frei von Alkohol</p>
+
+      <p *ngIf="!user.fullAccess">Zu einem dieser Feste möchte ich {{ user.useSingular ? 'dich' : 'euch' }} ganz herzlich einladen.</p>
+
+      <p *ngIf="user.fullAccess">Zu beiden Feste möchte ich {{ user.useSingular ? 'dich' : 'euch' }} ganz herzlich einladen.</p>
+
+      <p>Die Wahl überlasse ich {{ user.useSingular ? 'dir' : 'euch' }}</p>
+
+      <p class='sig'>- Daniel</p>
+      <!-- CONTENT END -->
+
+    </div>
+	</div>
+</div>

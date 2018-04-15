@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-my-grey">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+        <a routerLinkActive="active-link" class="nav-link" routerLink="/bday"><i class="fa fa-birthday-cake" aria-hidden="true">bday</i></a>
+        <a routerLinkActive="active-link" class="nav-link" routerLink="/ort"><i class="fa fa-map" aria-hidden="true">ort</i></a>
+        <a routerLinkActive="active-link" class="nav-link" routerLink="/faq"><i class="fa fa-quora" aria-hidden="true">faq</i></a>
+        <a routerLinkActive="active-link" class="nav-link" routerLink="/login" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true">logout</i></a>
+    </ul>
+  </div>
+</nav>

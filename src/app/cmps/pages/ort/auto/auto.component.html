@@ -1,0 +1,9 @@
+<h2>Autofahrer</h2>
+<p>Da die Parkmöglichkeiten am Haus nur begrenzt sind, empfehle ich {{ user.useSingular ? 'dir' : 'euch' }} den Guntersblumer
+	Marktplatz. Von dort aus sind es dann ein drei minütiger Fußweg bis zu uns.</p>
+
+<button (click)="toggle()">{{ state==='opened' ? 'Verstecke' : 'Zeige' }} Map</button>
+<div class='row map'>
+	<iframe [@slidingMaps]='state' src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d917.1374502241194!2d8.345212994379139!3d49.79746528564623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e2!4m5!1s0x47bd86a6ddf334cf%3A0x843b3719de9e1f19!2sMarktplatz!3m2!1d49.797655!2d8.3439794!4m3!3m2!1d49.7976959!2d8.3473373!5e0!3m2!1sde!2sde!4v1521176791148"
+	 width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
